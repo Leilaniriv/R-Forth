@@ -6,7 +6,6 @@
 #include <string.h>
 #include <ctype.h>
 
-// Define enum for token types
 typedef enum {
     NUMBER,
     OPERATOR,
@@ -24,4 +23,4 @@ typedef struct {
 token_t *get_next_token(FILE *input);
 void free_token(token_t *token);
 
-#endif /* TOKEN_H */
+#endif // TOKEN_H

@@ -1,17 +1,15 @@
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-//#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "token.h"
 
 token_t *get_next_token(FILE *input) {
     token_t *token = malloc(sizeof(token_t));
     if (token == NULL) {
-        fprintf(stderr, "Memory allocation error\n");
-        exit(EXIT_FAILURE);
+        return NULL;
     }
 
-    // Read input
     if (fscanf(input, "%s", token->text) == EOF) {
         free(token);
         return NULL;
