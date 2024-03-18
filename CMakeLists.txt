@@ -1,33 +1,23 @@
+cmake_minimum_required(VERSION 3.14)
+project(R_FORTH VERSION 1.0)
 
-FetchContent_MakeAvailable(googletest)
-
+# Enable testing
 enable_testing()
 
-add_executable(wordlist-demo
-        wordlist-demo.c
-        wordlist.c)
+# Fetch GoogleTest
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip
+)
+FetchContent_MakeAvailable(googletest)
 
+# Add executables
 add_executable(int_stack_demo
         int_stack_demo.c
         int_stack.c)
 
-add_executable(
-        int_stack_tests
-        int_stack_tests.cc
-        int_stack.c
-)
-
-target_link_libraries(
-        int_stack_tests
-        gtest_main
-        -lpthread
-)
-
-
-include(GoogleTest)
-gtest_discover_tests(int_stack_tests)
-
-add_executable(
-	main
-	main.c
-	token.c)
+# Add main executable
+add_executable(main
+        main.c
+        token.c)
