@@ -1,15 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
-project(R_FORTH VERSION 1.0)
 
-# Enable testing
-enable_testing()
-
-# Fetch GoogleTest
-include(FetchContent)
-FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip
-)
 FetchContent_MakeAvailable(googletest)
 
 # Add executables
