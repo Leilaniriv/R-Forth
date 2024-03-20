@@ -69,7 +69,7 @@ int int_stack_swap(int_stack_t *stk) {
     return int_stack_push(stk, next_to_top_value); // success only if last operation succeeds
 }
 
-/* Example of how to create a binary operator that works o top two elements (if present) */
+/* Example of how to create a binary operator that works on top two elements (if present) */
 
 int int_stack_add(int_stack_t *stk) {
     if (stk->size < 2)
@@ -98,9 +98,9 @@ int int_stack_rot (int_stack_t *stk) {
     int_stack_pop(stk, &top_value);
     int_stack_pop(stk, &second_value);
     int_stack_pop(stk, &third_value);
-    int_stack_push(stk, &second_value);
-    int_stack_push(stk, &third_value);
-    return int_stack_push (stk, &top_value);
+    int_stack_push(stk, second_value);
+    int_stack_push(stk, third_value);
+    return int_stack_push (stk, top_value);
 }
 
 int int_stack_drop(int_stack_t *stk){
