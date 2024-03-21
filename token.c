@@ -46,8 +46,12 @@ token_t *get_next_token(FILE *input) {
         token->type = OPERATOR;
     } else if (strcmp(token->text, ":") == 0 || strcmp(token->text, ";") == 0) {
         token->type = SYMBOL;
+    }else if (strcmp(token->text, "==") == 0 || strcmp(token->text, "!=") == 0 ||
+               strcmp(token->text, "<") == 0 || strcmp(token->text, ">") == 0 ||
+               strcmp(token->text, "<=") == 0 || strcmp(token->text, ">=") == 0) {
+        token->type = BOOLEAN_EX;
     }else if (isalpha(token->text[0])){
-        if (issupper(token->text[0])){
+        if (isupper(token->text[0])){
             token->type = CONSTANT;
         } else{
             token->type = VARIABLE;
@@ -56,4 +60,5 @@ token_t *get_next_token(FILE *input) {
         token->type = WORD;
 
     return token;
+    }
 }

@@ -10,13 +10,17 @@ typedef enum {
     NUMBER,
     OPERATOR,
     SYMBOL,
-    WORD
+    WORD,
+    VARIABLE,
+    CONSTANT,
+    BOOLEAN_EX
 } token_type_t;
 
 // Define structure for a token
 typedef struct {
     token_type_t type;
     char *text;
+    int value;
 } token_t;
 
 // Function prototypes

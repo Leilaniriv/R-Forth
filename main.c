@@ -4,6 +4,9 @@
 #include "token.h"
 #include "int_stack.h"
 
+void execute_conditional(token_t *token, int_stack_t *stack) {
+}
+
 int main() {
     int_stack_t myStack;
     const int capacity = 5;
@@ -93,12 +96,14 @@ int main() {
             case WORD:
                 printf("Word: %s\n", token->text);
                 break;
+            case BOOLEAN_EX:
+                execute_conditional(token,&myStack);
+                break;
             default:
                 printf("Unknown token type\n");
                 break;
         }
         free_token(token);
-    }
 
     return 0;
 }
