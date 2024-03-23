@@ -88,7 +88,7 @@ int main() {
                 printf("Number: %s\n", token->text);
                 break;
             case OPERATOR:
-                printf("Operator: %s\n", token->text);
+                //printf("Operator: %s\n", token->text);
                 if (strcmp(token->text, "+") == 0) {
                     if (!int_stack_add(&myStack)) {
                         fprintf(stderr, "Error: Addition operation failed.\n");
