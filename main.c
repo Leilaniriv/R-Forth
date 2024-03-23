@@ -89,6 +89,15 @@ int main() {
                 break;
             case OPERATOR:
                 printf("Operator: %s\n", token->text);
+                if (strcmp(token->text, "+") == 0) {
+                    if (!int_stack_add(&myStack)) {
+                        fprintf(stderr, "Error: Addition operation failed.\n");
+                        return 1;
+                    }
+                    } else {
+                    fprintf(stderr, "Error: Unsupported operator %s\n", token->text);
+                    return 1;
+                    }
                 break;
             case SYMBOL:
                 printf("Symbol: %s\n", token->text);
@@ -104,6 +113,10 @@ int main() {
                 break;
         }
         free_token(token);
+    }
+    printf("Stack content: \n");
+    int_stack_print(&myStack, stdout);
 
     return 0;
+    
 }
